@@ -10,3 +10,15 @@ The program will include the following topics:
 - File read/write
 - Functions
 - Test suite using `Pytest`
+
+
+## Setup
+### Accept GitHub Classroom Assignment
+Follow the github classroom link. One person creates a team, the other group members join the team.
+
+### Clone your "fork"
+GitHub Classroom will create a fork of my [original repository](https://github.com/ICS4U-Gallo/markbook-assignment).  Clone your fork (**ensure your fork URL has YOUR team name in the link**).
+
+### Test it out
+- Open your repository folder.
+- In the terminal, run `Pytest` and ensure it says it ran two tests.
