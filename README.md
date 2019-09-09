@@ -22,3 +22,6 @@ GitHub Classroom will create a fork of my [original repository](https://github.c
 ### Test it out
 - Open your repository folder.
 - In the terminal, run `Pytest` and ensure it says it ran two tests.
+
+### Make some change
+Have each person on the team make a change and push it to GitHub.
