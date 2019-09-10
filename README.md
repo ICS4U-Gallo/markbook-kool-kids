@@ -25,3 +25,6 @@ GitHub Classroom will create a fork of my [original repository](https://github.c
 
 ### Make some change
 Have each person on the team make a change and push it to GitHub.
+
+
+- Create a GitHub project board with the product backlog items in `product_backlog.md`.
