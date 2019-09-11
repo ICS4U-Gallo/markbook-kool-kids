@@ -50,5 +50,5 @@ def test_calculate_average_mark():
     student = {
         "marks": [50, 100]
     }
-    assert calculate_average_mark(student) == 75.0
+    assert markbook.calculate_average_mark(student) == 75.0
 
