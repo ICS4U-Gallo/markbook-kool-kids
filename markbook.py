@@ -5,13 +5,21 @@ Group members:
 from typing import Dict
 
 
-def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
-    """Creates a classroom dictionary"""
+def create_assignment(name: str, due: str, points: int) -> Dict:
+    """Creates an assignment represented as a dictionary
+    
+    Args:
+        name: the name of the assignment.
+        due: the due date for the assignment.
+        points: what the assignment is out of (denominator).
+    Returns:
+        Assignment as a dictionary.
+    """
     return {}
 
 
-def create_assignment():
-    """Creates an assignment represented as a dictionary"""
+def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
+    """Creates a classroom dictionary"""
     return {}
 
 
