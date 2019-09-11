@@ -15,3 +15,35 @@ For teachers to store mark realated info about their students.
 - Report card comments
 
 # Product Backlog
+- Set up env
+- Figure out data representation
+    - Students
+        - first_name: str
+        - last_name: str
+        - Gender
+        - image
+        - student number
+        - grade: int
+        - email
+        - marks: List[float]
+        - Comments
+    - Class
+        - course code
+        - course name
+        - period
+        - teacher name
+        - student list
+        - assignments list
+    - Assignments
+        - Due
+        - name
+        - points
+- Create list of marks
+- write object data to file
+- Create interface
+- create class
+- create student dict/class
+- create class
+    - create student list
+- create assignment
+- create assignment list
