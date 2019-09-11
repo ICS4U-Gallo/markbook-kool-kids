@@ -47,3 +47,23 @@ For teachers to store mark realated info about their students.
     - create student list
 - create assignment
 - create assignment list
+
+
+- Figure out what data goes where
+  - Classes?
+  - **Dictionaries**?
+  - **Lists**?
+- Create student list
+- Create Assignment List
+- Mark lists
+- Create student mark report
+- Create assignment mark report
+- **Read/write to file**
+  - JSON
+  - Assignments
+  - Students
+- Add report card comments
+- create menu system
+
+- **add student**
+- **remove student**
