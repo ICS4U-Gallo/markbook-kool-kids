@@ -14,3 +14,7 @@ def create_assignment():
     """Creates an assignment represented as a dictionary"""
     return {}
 
+
+def calculate_average_mark(student: Dict) -> float:
+    """Calculates the average mark of a student"""
+    return 0

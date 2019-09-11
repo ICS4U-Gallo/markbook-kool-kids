@@ -1,6 +1,9 @@
+import pytest
+
 import markbook
 
 
+@pytest.mark.skip()
 def test_create_classroom():
     classroom = markbook.create_classroom(course_code="ICS4U",
                                           course_name="Computer Science",
@@ -22,8 +25,9 @@ def test_create_classroom():
     assert classroom["assignment_list"] == []
 
 
+@pytest.mark.skip
 def test_create_assigment():
-    assignment = markbook.create_assignment(name="Assignment One",
+    assignment1 = markbook.create_assignment(name="Assignment One",
                                             due="2019-09-21",
                                             points=100)
     expected = {
@@ -31,5 +35,20 @@ def test_create_assigment():
         "due": "2019-09-21",
         "points": 100
     }
+    assert assignment1 == expected
 
-    assert assignment == expected
+    assignment2 = markbook.create_assignment(name="Assignment Two",
+                                        due=None,
+                                        points=1)
+    assert assignment2["name"] == "Assignment Two"
+    assert assignment2["due"] is None
+    assert assignment2["points"] == 1
+
+
+@pytest.mark.skip
+def test_calculate_average_mark():
+    student = {
+        "marks": [50, 100]
+    }
+    assert calculate_average_mark(student) == 75.0
+
