@@ -52,3 +52,20 @@ def test_calculate_average_mark():
     }
     assert markbook.calculate_average_mark(student) == 75.0
 
+
+@pytest.mark.skip
+def test_add_student_to_classroom():
+    """
+    Dependencies:
+        - create_classroom()
+    """
+    classroom = markbook.create_classroom(course_code="ICS4U",
+                                          course_name="Computer Science",
+                                          period=2,
+                                          teacher="Mr. Gallo")
+    student = {"first_name": "John", "last_name": "Smith"}
+
+    assert len(classroom["student_list"]) == 0
+    markbook.add_student_to_classroom(student, classroom)
+    assert type(classroom["student_list"]) is list
+    assert len(classroom["student_list"]) == 1
