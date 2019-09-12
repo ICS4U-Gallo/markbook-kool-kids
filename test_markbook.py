@@ -16,8 +16,8 @@ def test_create_assigment():
     assert assignment1 == expected
 
     assignment2 = markbook.create_assignment(name="Assignment Two",
-                                        due=None,
-                                        points=1)
+                                             due=None,
+                                             points=1)
     assert assignment2["name"] == "Assignment Two"
     assert assignment2["due"] is None
     assert assignment2["points"] == 1
