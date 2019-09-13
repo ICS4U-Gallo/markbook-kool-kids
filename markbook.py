@@ -10,6 +10,7 @@ print("Press 1 to add student profile")
 print("Press 2 for course class information")
 print("Press 3 for assignments")
 
+
 def main():
     while True: 
         while True:
@@ -32,6 +33,7 @@ def main():
             assignments()
 "Students"
 mark = int(input("Please input mark: "))
+
 
 def some_func():
     return True
