@@ -1,1 +1,34 @@
 # Product Backlog
+- Set up env
+- Figure out data representation 
+    - Students
+        - first_name: str 
+        - last_name: str
+        - Gender
+        - Image
+        - Student number
+        - Grade
+        - Email
+        - marks: list[float]
+        - Comments
+    - Class
+        - Course code
+        - Course name
+        - Period
+        - Teacher name
+        - Student list
+    - Assignments
+        - Due 
+        - Name
+        - Points
+    - Marks
+    - Comments
+- Create list of marks
+- Write object data to file
+- Create interface
+-
+- Create student dict/class
+- Create class
+    - Create student list
+- Create assignment
+- Create assignment list
