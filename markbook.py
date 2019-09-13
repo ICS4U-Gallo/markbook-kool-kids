@@ -4,41 +4,7 @@ Group members:
 """
 from typing import Dict
 
-"Menu"
-print("Markbook")
-print("Press 1 to add student profile")
-print("Press 2 for course class information")
-print("Press 3 for assignments")
 
-
-def main():
-    while True: 
-        while True:
-            try:
-                menu_choice = int(input("Menu Choice: "))
-            except ValueError:
-                print("Invalid Option, please choose again")
-                input("Back to menu [Enter]...")
-            break
-        # Adding/editing/removing student profile
-        if menu_choice == 1:
-            student_profile()
-
-        # Adding/editing/removing course class information
-        elif menu_choice == 2:
-            class_info()
-
-        # Adding/editing/removing assignment
-        elif menu_choice == 3:
-            assignments()
-"Students"
-mark = int(input("Please input mark: "))
-
-<<<<<<< HEAD
-
-def some_func():
-    return True
-=======
 def create_assignment(name: str, due: str, points: int) -> Dict:
     """Creates an assignment represented as a dictionary
     
@@ -92,4 +58,3 @@ def edit_student(student: Dict, **kwargs: Dict):
             of a dictionary.
     """
     pass
->>>>>>> 25af10d48620f2d6385d8fe7c9417603ae43b381
