@@ -65,9 +65,9 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 def main():
     global user, running
-    print("=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\nWelcome!")
+    print("\nWelcome!")
     while running:
-        print("1 - Create Assignment\n2 - Create Classroom\n3 - Calculate Average Mark")
+        print("\n1 - Create Assignment\n2 - Create Classroom\n3 - Calculate Average Mark")
         print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Edit Student")
         print("7 - Exit Program")
         user = input("\nInput a Number: ")
@@ -92,8 +92,8 @@ def main():
         elif user == "7":
             running = False
         else:
-            print("\nInvalid Input")
-        print("\nGoodbye!\n\n=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+            print("\n<<Invalid Input>>")
+    print("\nGoodbye!")
 
 
 main()
