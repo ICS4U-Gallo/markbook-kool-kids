@@ -4,11 +4,6 @@ Group members:
 """
 from typing import Dict
 
-"Menu"
-print("Markbook")
-print("Press 1 to add student profile")
-print("Press 2 for course class information")
-print("Press 3 for assignments")
 
 def main():
     while True: 
