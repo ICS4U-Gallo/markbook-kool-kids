@@ -4,6 +4,9 @@ Group members:
 """
 from typing import Dict
 
+running = True
+user = 0
+
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
     """Creates an assignment represented as a dictionary
@@ -58,3 +61,39 @@ def edit_student(student: Dict, **kwargs: Dict):
             of a dictionary.
     """
     pass
+
+
+def main():
+    global user, running
+    print("=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\nWelcome!")
+    while running:
+        print("1 - Create Assignment\n2 - Create Classroom\n3 - Calculate Average Mark")
+        print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Edit Student")
+        print("7 - Exit Program")
+        user = input("\nInput a Number: ")
+        if user == "1":
+            # create_assignment()
+            pass
+        elif user == "2":
+            # create_classroom()
+            pass
+        elif user == "3": 
+            # calculate_average_mark()
+            pass
+        elif user == "4":
+            # add_student_to_classroom()
+            pass
+        elif user == "5":
+            # remove_student_from_classroom()
+            pass
+        elif user == "6":
+            # edit_student()
+            pass
+        elif user == "7":
+            running = False
+        else:
+            print("\nInvalid Input")
+        print("\nGoodbye!\n\n=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+
+
+main()
