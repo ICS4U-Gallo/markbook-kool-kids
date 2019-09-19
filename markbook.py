@@ -4,7 +4,6 @@ Group members:
 """
 from typing import Dict
 
-running = True
 user = 0
 
 
@@ -64,9 +63,9 @@ def edit_student(student: Dict, **kwargs: Dict):
 
 
 def main():
-    global user, running
+    global user
     print("\nWelcome!")
-    while running:
+    while True:
         print("\n1 - Create Assignment\n2 - Create Classroom\n3 - Calculate Average Mark")
         print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Edit Student")
         print("7 - Exit Program")
@@ -90,7 +89,7 @@ def main():
             # edit_student()
             pass
         elif user == "7":
-            running = False
+            break
         else:
             print("\n<<Invalid Input>>")
     print("\nGoodbye!")
