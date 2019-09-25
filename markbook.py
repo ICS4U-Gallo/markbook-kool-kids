@@ -1,6 +1,6 @@
 """
 Markbook Application
-Group members: 
+Group members:
 """
 from typing import Dict
 
@@ -9,7 +9,7 @@ user = 0
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
     """Creates an assignment represented as a dictionary
-    
+
     Args:
         name: the name of the assignment.
         due: the due date for the assignment.
@@ -70,26 +70,41 @@ def main():
         print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Edit Student")
         print("7 - Exit Program")
         user = input("\nInput a Number: ")
+
         if user == "1":
-            # create_assignment()
-            pass
+            name = input("\nEnter the name of the assignment: ")
+            due = input("Enter the due date of the assignment: ")
+            points = input("Enter what the assignment is out of: ")
+            # create_assignment(name, due, points)
+
         elif user == "2":
-            # create_classroom()
-            pass
-        elif user == "3": 
-            # calculate_average_mark()
-            pass
+            code = input("\nEnter the course code of the class: ")
+            name = input("Enter the name of the class: ")
+            period = input("Enter what period the class is: ")
+            teacher = input("Enter the name of the teacher: ")
+            # create_classroom(code, name, period, teacher)
+
+        elif user == "3":
+            name = input("\nEnter the name of the student: ")
+            # calculate_average_mark(name)
+
         elif user == "4":
-            # add_student_to_classroom()
-            pass
+            name = input("\nEnter the name of the student: ")
+            classroom = input("Enter the name of the class: ")
+            # add_student_to_classroom(name, classroom)
+
         elif user == "5":
-            # remove_student_from_classroom()
-            pass
+            name = input("\nEnter the name of the student: ")
+            classroom = input("Enter the name of the class: ")
+            # remove_student_from_classroom(name, classroom)
+
         elif user == "6":
             # edit_student()
             pass
+
         elif user == "7":
             break
+
         else:
             print("\n<<Invalid Input>>")
     print("\nGoodbye!")
