@@ -17,13 +17,28 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
     Returns:
         Assignment as a dictionary.
     """
-    assigment_name = input("Enter assignment name: ")
-    due_date = input("Enter assignment due date: ")
-    points = input("Enter number of points: ")
-    assignment = {
-        "name": input("Enter assignment name: "), "due_date": input("Enter due date: "), "points": input("Enter number of points: ")
+    assignment_name_list = []
+    due_date_list = []
+    points_list = []
+
+    while True:
+        assigment_name = input("Enter assignment name: ")
+        assignment_name_list.append(assigment_name)
+        due_date = input("Enter assignment due date: ")
+        due_date_list.append(due_date)
+        points = input("Enter number of points: ")
+        points_list.append(points)
+        if input("Press space then enter to view assignments or Press enter to continue adding assignments: ") == " ":
+            break
+        else:
+            pass
+    assignments = {
+        "name": assignment_name_list, "due_date": due_date_list,
+        "points": points_list
         }
-    return {}
+        #return {}
+    names = assignments.values()
+    print(names)
 
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
