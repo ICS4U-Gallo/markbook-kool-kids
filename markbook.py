@@ -17,6 +17,12 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
     Returns:
         Assignment as a dictionary.
     """
+    assigment_name = input("Enter assignment name: ")
+    due_date = input("Enter assignment due date: ")
+    points = input("Enter number of points: ")
+    assignment = {
+        "name": input("Enter assignment name: "), "due_date": input("Enter due date: "), "points": input("Enter number of points: ")
+        }
     return {}
 
 
