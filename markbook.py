@@ -3,8 +3,11 @@ Markbook Application
 Group members:
 """
 from typing import Dict
+import json
 
 user = 0
+with open("studentlist.json", "r") as f:
+    student_list = json.load(f)
 
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
