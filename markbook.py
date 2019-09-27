@@ -74,6 +74,26 @@ def remove_student_from_classroom(student: Dict, classroom: Dict):
     pass
 
 
+def add_student(first_name: str, last_name: str, gender: str, student_number: int, grade: int, email: str, marks: list, comments: str):
+    """Add student's info with the provided key/value pairs
+
+    Args:
+        first_name: first name of student
+        last_name: last name of student
+        gender: gender of student
+        student_number: student number of student
+        grade: grade of student
+        email: email of student
+        marks: list of student marks
+        comments: comments from teacher
+    """
+
+    print(student_list)
+
+    student_list.append({first_name, last_name, gender, student_number, grade, email, marks, comments})
+    print(student_list)
+
+
 def edit_student(student: Dict, **kwargs: Dict):
     """Edits the student's info with the provided key/value pairs
 
@@ -91,8 +111,8 @@ def main():
     print("\nWelcome!")
     while True:
         print("\n1 - Create Assignment\n2 - Create Classroom\n3 - Calculate Average Mark")
-        print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Edit Student")
-        print("7 - Exit Program")
+        print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Add Student")
+        print("7 - Edd Student\n8 - Exit Program")
         user = input("\nInput a Number: ")
 
         if user == "1":
@@ -123,10 +143,30 @@ def main():
             # remove_student_from_classroom(name, classroom)
 
         elif user == "6":
+            marks = []
+            answer = None
+            first_name = input("What is student's first name?: ")
+            last_name = input("What is student's last name?: ")
+            gender = input("What is student's gender?: ")
+            student_number = input("What is student's student number?: ")
+            grade = input("What is student's grade?: ")
+            email = input("What is student's email?: ")
+            while True:
+                marks.append(int(input("Enter student mark")))
+                answer = input("Enter another mark? (1 for yes, 2 for no): ")
+                if answer == "2":
+                    break
+                else:
+                    pass
+            comments = input("Add comment about student: ")
+
+            add_student(first_name, last_name, gender, student_number, grade, email, marks, comments)
+
+        elif user == "7":
             # edit_student()
             pass
 
-        elif user == "7":
+        elif user == "8":
             break
 
         else:
