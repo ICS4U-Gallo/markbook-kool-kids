@@ -11,27 +11,37 @@ with open("studentlist.json", "r") as f:
 
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
-    assignment_list = []
+    """Creates an assignment represented as a dictionary
 
-while True:
-    name = None
-    due = None
-    points = None
-    name = input("Enter assignment name: ")
-    due = input("Enter assignment due date: ")
-    points = input("Enter number of points: ")
-    new_assignment = {
-        "name": name, "due_date": due,
-        "points": points
-    }
-    assignment_list.append(dict(new_assignment))
-    if input("""
-        Press space then enter to view assignments or
-        Press enter to add more assignments:
-            """) == " ":
-        break
+    Args:
+        name: the name of the assignment.
+        due: the due date for the assignment.
+        points: what the assignment is out of (denominator).
+    Returns:
+        Assignment as a dictionary.
+    """
+    assignment_name_list = []
+    due_date_list = []
+    points_list = []
 
-return assignment_list
+    while True:
+        assigment_name = input("Enter assignment name: ")
+        assignment_name_list.append(assigment_name)
+        due_date = input("Enter assignment due date: ")
+        due_date_list.append(due_date)
+        points = input("Enter number of points: ")
+        points_list.append(points)
+        if input("Press space then enter to view assignments or Press enter to continue adding assignments: ") == " ":
+            break
+        else:
+            pass
+    assignments = {
+        "name": assignment_name_list, "due_date": due_date_list,
+        "points": points_list
+        }
+        #return {}
+    names = assignments.values()
+    print(names)
 
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
@@ -43,15 +53,26 @@ def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     return 0
 
-
-def add_student_to_classroom(student, classroom):
+def add_student_to_classroom():
     """Adds student to a classroom
 
     Args:
         student: Student dict
         classroom: The classroom to add the student to
     """
-    pass
+    student_number = int(input("What is the student's number? "))
+    first_name = input("What is the student's first name? ")
+    last_name = input("What is the student's last name? ")
+    gender = input("Is the student male or female? ")
+    grade = int(input("What grade is the student in? "))
+    #average_mark = ???
+    email = input("What is the student's email? ")
+    comments = input("Do you have any comments? Input them separated by a comma and a space ")
+    
+    comments_list = comments.split(", ")
+    
+    student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
+    return("The student has been added!")
 
 
 def remove_student_from_classroom(student: Dict, classroom: Dict):
