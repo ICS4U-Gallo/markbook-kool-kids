@@ -5,6 +5,7 @@ Group members:
 from typing import Dict
 import json
 
+student_dictionary = {}
 user = 0
 with open("studentlist.json", "r") as f:
     student_list = json.load(f)
@@ -74,15 +75,21 @@ def add_student_to_classroom():
     student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
     return("The student has been added!")
 
-
-def remove_student_from_classroom(student: Dict, classroom: Dict):
+def remove_student_from_classroom():
     """Removes student from classroom
-
     Args:
         student: The student to be removed
         classroom: the class from which the student will be removed.
     """
-    pass
+    remove_student_number = (int(input("What's the student's number? ")))
+    for number in student_dictionary.keys():
+        if number == remove_student_number:
+            student_dictionary.pop(number)
+            return("The student has been removed!")
+            break
+        else:
+            return("That is not a valid number.")
+    
 
 
 def edit_student(student: Dict, **kwargs: Dict):
