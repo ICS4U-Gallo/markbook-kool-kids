@@ -59,6 +59,7 @@ def calculate_average_mark(student: Dict) -> float:
     return average_mark
 
 def add_student_to_classroom():
+    calculate_average_mark(student)
     """Adds student to a classroom
     Args:
         student: Student dict
@@ -73,7 +74,7 @@ def add_student_to_classroom():
     email = input("What is the student's email? ")
     comments = input("Do you have any comments? Input them separated by a comma and a space ")
     comments_list = comments.split(", ")
-    student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
+    student_dictionary[student_number] = [first_name, last_name, gender, average_mark_output, grade, email, comments_list]
     return("The student has been added!")
     input("Back to menu [Enter]...")
 
@@ -109,9 +110,8 @@ def main():
     global user
     print("\nWelcome!")
     while True:
-        print("\n1 - Create Assignment\n2 - Create Classroom\n3 - Calculate Average Mark")
-        print("4 - Add Student to Classroom\n5 - Remove Student from Classroom\n6 - Edit Student")
-        print("7 - Exit Program")
+        print("\n1 - Create Assignment\n2 - Create Classroom\n3 - Add Student to Classroom")
+        print("4 - Remove Student from Classroom\n5 - Edit Student\n6 - Exit Program")
         user = input("\nInput a Number: ")
 
         if user == "1":
@@ -125,25 +125,22 @@ def main():
             name = input("Enter the name of the class: ")
             period = input("Enter what period the class is: ")
             teacher = input("Enter the name of the teacher: ")
-            # create_classroom(code, name, period, teacher)
+            create_classroom()
+            # create_classroom(course_code, course_name, period, teacher)
 
-        elif user == "3":
-            name = input("\nEnter the name of the student: ")
-            # calculate_average_mark(name)
-
-        elif user == "4":
-            (add_student_to_classroom())
+        elif user == "3":    
+            add_student_to_classroom()
             # add_student_to_classroom
 
-        elif user == "5":
-            (remove_student_from_classroom())
+        elif user == "4":
+            remove_student_from_classroom()
             # remove_student_from_classroom
 
-        elif user == "6":
+        elif user == "5":
             # edit_student()
             pass
 
-        elif user == "7":
+        elif user == "6":
             break
 
         else:
