@@ -56,7 +56,19 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
 
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
-    return 0
+    
+    targert_student_number = int(input("Enter the student number:"))
+    for i in range(len(student_list)):
+        for key, val in student_list[i]:
+            if key == "student_number" and val == target_student_number:
+                for i in range(len(student_list[i]["marks"])):
+                    marks = ["marks"][i]
+                    total_mark += marks
+                average_mark = total_mark/(len(student_list[i]["marks"])
+            else:
+                continue
+    return average_mark
+    
 
 def add_student_to_classroom():
     """Adds student to a classroom
