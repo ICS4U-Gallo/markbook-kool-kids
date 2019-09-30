@@ -5,6 +5,12 @@ Group members:
 from typing import Dict
 import json
 
+studentlist = []
+assignmentlist = []
+classdict = {"coursecode" : None, "coursename" : None, "period" : None, "teachername" , None}
+classdict.update({"studentlist" : studentlist})
+classdict.update({"assignmentlist" : assignmentlist})
+
 student_dictionary = {}
 user = 0
 with open("studentlist.json", "r") as f:
