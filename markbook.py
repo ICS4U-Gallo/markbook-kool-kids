@@ -132,11 +132,11 @@ def main():
             # calculate_average_mark(name)
 
         elif user == "4":
-            print(add_student_to_classroom())
+            (add_student_to_classroom())
             # add_student_to_classroom
 
         elif user == "5":
-            print(remove_student_from_classroom())
+            (remove_student_from_classroom())
             # remove_student_from_classroom
 
         elif user == "6":
