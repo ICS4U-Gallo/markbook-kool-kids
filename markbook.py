@@ -54,7 +54,7 @@ def calculate_average_mark(student: Dict) -> float:
                 for i in range(len(student_list[i]["marks"])):
                     marks = ["marks"][i]
                     total_mark += marks
-                average_mark = total_mark/(len(student_list[i]["marks"])
+                average_mark = total_mark/(len(student_list[i]["marks"]))
             else:
                 continue
     return average_mark
