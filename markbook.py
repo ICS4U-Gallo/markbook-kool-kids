@@ -41,7 +41,7 @@ def create_classroom(course_code: str, course_name: str, period: int, teacher: s
     classdict = {"course_code": None, "course_name": None, "period": None, "teacher": None}
     classdict.update({"student list": student_list})
     classdict.update({"assignment list": assignment_list})
-    return {}
+    return classdict{}
 
 
 def calculate_average_mark(student: Dict) -> float:
