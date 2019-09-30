@@ -5,12 +5,6 @@ Group members:
 from typing import Dict
 import json
 
-studentlist = []
-assignmentlist = []
-classdict = {"coursecode" : None, "coursename" : None, "period" : None, "teachername" , None}
-classdict.update({"studentlist" : studentlist})
-classdict.update({"assignmentlist" : assignmentlist})
-
 student_dictionary = {}
 user = 0
 with open("studentlist.json", "r") as f:
@@ -42,7 +36,11 @@ return assignment_list
 
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
-    """Creates a classroom dictionary"""
+    student_list = []
+    assignment_list = []
+    classdict = {"course code" : None, "course name" : None, "period" : None, "teacher" , None}
+    classdict.update({"student list" : student_list})
+    classdict.update({"assignment list" : assignment_list})
     return {}
 
 
@@ -86,26 +84,6 @@ def remove_student_from_classroom():
         else:
             return("That is not a valid number.")
     
-
-
-def add_student(first_name: str, last_name: str, gender: str, student_number: int, grade: int, email: str, marks: list, comments: str):
-    """Add student's info with the provided key/value pairs
-
-    Args:
-        first_name: first name of student
-        last_name: last name of student
-        gender: gender of student
-        student_number: student number of student
-        grade: grade of student
-        email: email of student
-        marks: list of student marks
-        comments: comments from teacher
-    """
-
-    print(student_list)
-
-    student_list.append({first_name, last_name, gender, student_number, grade, email, marks, comments})
-    print(student_list)
 
 
 def edit_student(student: Dict, **kwargs: Dict):
