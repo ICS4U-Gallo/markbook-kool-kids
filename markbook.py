@@ -37,6 +37,57 @@ def create_assignment() -> List:
     return assignment_list
 
 
+def edit_assignment():
+    assignment_name = input("Assignment Name: ")
+    for assignment in range(len(assignment_list)):
+        if assignment_list[assignment]["name"] == assignment_name:
+            edit_item = input("Edit name, due date or points: ")
+            if edit_item == "name":
+                new_name = input("Enter new name: ")
+                assignment_list[assignment]["name"] = new_name
+            elif edit_item == "due date":
+                new_date = input("Enter new due date: ")
+                assignment_list[assignment]["due"] = new_date
+            elif edit_item == "points":
+                new_points = input("Enter new points: ")
+                assignment_list[assignment]["points"] = new_points
+            else:
+                return "Invalid Input"
+    
+    return assignment_list
+
+
+def remove_assignment():
+    assignment_name = input("Assignment Name: ")
+    for assignment in range(len(assignment_list)):
+        if assignment_list[assignment]["name"] == assignment_name:
+            del assignment_list[assignment]
+
+    return assignment_list
+    
+    
+# Collects each student's number of points for each assignment
+def assignment_mark():
+    assignment_mark_list = []
+    for assignment in assignment_list:
+        for key in assignment:
+            if key == "points":
+                points = int(assignment.get("points"))
+                assignment_mark_list.append(points)
+
+    return assignment_mark_list
+  
+# Returns the average mark of each student's assignments
+def assignment_avg_marks(assignment_mark_list):
+    assignment_avg_list = []
+    for mark in assignment_mark_list:
+        student_mark = int(input(f"Enter student's mark out of {mark}: "))
+        average = (student_mark // mark) * 100
+        assignment_avg_list.append(average)
+
+    return assignment_avg_list
+
+    
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     class_dictionary = {"course_code": course_code, "course_name": course_name, "period": period, "teacher": teacher}
     class_dictionary.update({"student list": student_list})
