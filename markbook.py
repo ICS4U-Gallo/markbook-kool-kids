@@ -37,7 +37,7 @@ def create_assignment() -> List:
     return assignment_list
 
 
-def edit_assignment():
+def edit_assignment() -> List:
     assignment_name = input("Assignment Name: ")
     for assignment in range(len(assignment_list)):
         if assignment_list[assignment]["name"] == assignment_name:
@@ -59,7 +59,7 @@ def edit_assignment():
     return assignment_list
 
 
-def remove_assignment():
+def remove_assignment() -> List:
     assignment_name = input("Assignment Name: ")
     for assignment in range(len(assignment_list)):
         if assignment_list[assignment]["name"] == assignment_name:
@@ -69,7 +69,7 @@ def remove_assignment():
     
     
 # Collects each student's number of points for each assignment
-def assignment_mark():
+def assignment_mark() -> List:
     assignment_mark_list = []
     for assignment in assignment_list:
         for key in assignment:
@@ -80,7 +80,7 @@ def assignment_mark():
     return assignment_mark_list
   
 # Returns the average mark of each student's assignments
-def assignment_avg_marks(assignment_mark_list):
+def assignment_avg_marks(assignment_mark_list) -> List:
     assignment_avg_list = []
     for mark in assignment_mark_list:
         student_mark = int(input(f"Enter student's mark out of {mark}: "))
@@ -163,7 +163,7 @@ def main():
     global user
     print("\nWelcome!")
     while True:
-        print("\n1 - Create Assignment\n2 - Create Classroom\n3 - Add Student to Classroom")
+        print("\n1 - Assignments\n2 - Create Classroom\n3 - Add Student to Classroom")
         print("4 - Remove Student from Classroom\n5 - Edit Student\n6 - Exit Program")
         user = input("\nInput a Number: ")
 
