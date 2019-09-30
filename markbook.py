@@ -5,6 +5,13 @@ Group members:
 from typing import Dict
 import json
 
+studentlist = []
+assignmentlist = []
+classdict = {"coursecode" : None, "coursename" : None, "period" : None, "teachername" , None}
+classdict.update({"studentlist" : studentlist})
+classdict.update({"assignmentlist" : assignmentlist})
+
+student_dictionary = {}
 user = 0
 with open("studentlist.json", "r") as f:
     student_list = json.load(f)
@@ -43,25 +50,42 @@ def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
     return 0
 
-
-def add_student_to_classroom(student, classroom):
+def add_student_to_classroom():
     """Adds student to a classroom
 
     Args:
         student: Student dict
         classroom: The classroom to add the student to
     """
-    pass
+    student_number = int(input("What is the student's number? "))
+    first_name = input("What is the student's first name? ")
+    last_name = input("What is the student's last name? ")
+    gender = input("Is the student male or female? ")
+    grade = int(input("What grade is the student in? "))
+    #average_mark = ???
+    email = input("What is the student's email? ")
+    comments = input("Do you have any comments? Input them separated by a comma and a space ")
+    
+    comments_list = comments.split(", ")
+    
+    student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
+    return("The student has been added!")
 
-
-def remove_student_from_classroom(student: Dict, classroom: Dict):
+def remove_student_from_classroom():
     """Removes student from classroom
-
     Args:
         student: The student to be removed
         classroom: the class from which the student will be removed.
     """
-    pass
+    remove_student_number = (int(input("What's the student's number? ")))
+    for number in student_dictionary.keys():
+        if number == remove_student_number:
+            student_dictionary.pop(number)
+            return("The student has been removed!")
+            break
+        else:
+            return("That is not a valid number.")
+    
 
 
 def add_student(first_name: str, last_name: str, gender: str, student_number: int, grade: int, email: str, marks: list, comments: str):
