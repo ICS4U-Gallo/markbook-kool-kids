@@ -1,6 +1,6 @@
 """
 Markbook Application
-Group members:
+Group members: Terry, Bryan, Mary, Sydney, Mehana
 """
 from typing import Dict
 import json
@@ -29,7 +29,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
         if input("""
             Press space then enter to view assignments or
             Press enter to add more assignments:
-                """) == " ":
+                """) == " "::
             break
 
     return assignment_list
@@ -38,7 +38,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     student_list = []
     assignment_list = []
-    classdict = {"course_code": None, "course_name": None, "period": None, "teacher": None}
+    classdict = {"course code" : None, "course name" : None, "period" : None, "teacher" , None}
     classdict.update({"student list" : student_list})
     classdict.update({"assignment list" : assignment_list})
     return {}
@@ -80,7 +80,7 @@ def add_student_to_classroom():
     
     student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
     return("The student has been added!")
-
+    return("Back to menu [Enter]...")
 
 def remove_student_from_classroom():
     """Removes student from classroom
@@ -96,9 +96,11 @@ def remove_student_from_classroom():
             break
         else:
             return("That is not a valid number.")
+    return("Back to menu [Enter]...")
+    
 
 
-def edit_student():
+def edit_student(student: Dict, **kwargs: Dict):
     """Edits the student's info with the provided key/value pairs
 
     Args:
@@ -107,31 +109,7 @@ def edit_student():
             data that needs to be changed. Can come in the form
             of a dictionary.
     """
-    number = int(input("What is the student's student number?"))
-
-    for i in range(len(student_list)):
-        if number == student_list[i]["student_number"]:
-            print("What would you like to edit?\n1 - First Name\n2 - Last Name")
-            key_number = input("3 - Gender\n4 - Grade\n5 - Email")
-
-            if key_number == "1":
-                key = "first_name"
-            elif key_number == "2":
-                key = "last_name"
-            elif key_number == "3":
-                key = "gender"
-            elif key_number == "4":
-                key = "grade"
-            elif key_number == "5":
-                key = "email"
-
-            value = input("Enter new info: ")
-
-            student_list[i][key] = value
-            break
-
-        else:
-            print("Student number does not exist in system")
+    pass
 
 
 def main():
@@ -161,17 +139,16 @@ def main():
             # calculate_average_mark(name)
 
         elif user == "4":
-            name = input("\nEnter the name of the student: ")
-            classroom = input("Enter the name of the class: ")
-            # add_student_to_classroom(name, classroom)
+            print(add_student_to_classroom())
+            # add_student_to_classroom
 
         elif user == "5":
-            name = input("\nEnter the name of the student: ")
-            classroom = input("Enter the name of the class: ")
-            # remove_student_from_classroom(name, classroom)
+            print(remove_student_from_classroom())
+            # remove_student_from_classroom
 
         elif user == "6":
-            edit_student()
+            # edit_student()
+            pass
 
         elif user == "7":
             break
