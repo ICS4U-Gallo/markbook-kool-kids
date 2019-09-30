@@ -41,7 +41,7 @@ def edit_assignment():
     assignment_name = input("Assignment Name: ")
     for assignment in range(len(assignment_list)):
         if assignment_list[assignment]["name"] == assignment_name:
-            edit_item = input("Edit name, due date or points: ")
+            edit_item = input("Edit name, due date or points OR enter to exit: ")
             if edit_item == "name":
                 new_name = input("Enter new name: ")
                 assignment_list[assignment]["name"] = new_name
@@ -51,6 +51,8 @@ def edit_assignment():
             elif edit_item == "points":
                 new_points = input("Enter new points: ")
                 assignment_list[assignment]["points"] = new_points
+            elif edit_item == "":
+                break
             else:
                 return "Invalid Input"
     
@@ -167,7 +169,16 @@ def main():
 
         # Creates Assignments
         if user == "1":
-            create_assignment()
+            print("\n1- Create Assignment\n2- Edit Assignments\n3- Remove Assignment")
+            user = input("\nInput a Number: ")
+            if user == "1":
+                create_assignment()
+            elif user == "2":
+                edit_assignment()
+            elif user == "3":
+                remove_assignment()
+            else:
+                print("Invalid Input")
 
         elif user == "2":
             course_code = input("\nEnter the course code of the class: ")
