@@ -12,37 +12,27 @@ with open("studentlist.json", "r") as f:
 
 
 def create_assignment(name: str, due: str, points: int) -> Dict:
-    """Creates an assignment represented as a dictionary
-
-    Args:
-        name: the name of the assignment.
-        due: the due date for the assignment.
-        points: what the assignment is out of (denominator).
-    Returns:
-        Assignment as a dictionary.
-    """
-    assignment_name_list = []
-    due_date_list = []
-    points_list = []
+    assignment_list = []
 
     while True:
-        assigment_name = input("Enter assignment name: ")
-        assignment_name_list.append(assigment_name)
-        due_date = input("Enter assignment due date: ")
-        due_date_list.append(due_date)
+        name = None
+        due = None
+        points = None
+        name = input("Enter assignment name: ")
+        due = input("Enter assignment due date: ")
         points = input("Enter number of points: ")
-        points_list.append(points)
-        if input("Press space then enter to view assignments or Press enter to continue adding assignments: ") == " ":
-            break
-        else:
-            pass
-    assignments = {
-        "name": assignment_name_list, "due_date": due_date_list,
-        "points": points_list
+        new_assignment = {
+            "name": name, "due_date": due,
+            "points": points
         }
-        #return {}
-    names = assignments.values()
-    print(names)
+        assignment_list.append(dict(new_assignment))
+        if input("""
+            Press space then enter to view assignments or
+            Press enter to add more assignments:
+                """) == " ":
+            break
+
+    return assignment_list
 
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
