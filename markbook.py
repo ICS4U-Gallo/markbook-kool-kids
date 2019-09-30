@@ -5,12 +5,6 @@ Group members:
 from typing import Dict
 import json
 
-studentlist = []
-assignmentlist = []
-classdict = {"coursecode" : None, "coursename" : None, "period" : None, "teachername" , None}
-classdict.update({"studentlist" : studentlist})
-classdict.update({"assignmentlist" : assignmentlist})
-
 student_dictionary = {}
 user = 0
 with open("studentlist.json", "r") as f:
@@ -52,7 +46,11 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
 
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
-    """Creates a classroom dictionary"""
+    student_list = []
+    assignment_list = []
+    classdict = {"course code" : None, "course name" : None, "period" : None, "teacher" , None}
+    classdict.update({"student list" : student_list})
+    classdict.update({"assignment list" : assignment_list})
     return {}
 
 
