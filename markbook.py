@@ -29,7 +29,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
         if input("""
             Press space then enter to view assignments or
             Press enter to add more assignments:
-                """) == " "::
+                """) == " ":
             break
 
     return assignment_list
@@ -38,15 +38,14 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     student_list = []
     assignment_list = []
-    classdict = {"course code" : None, "course name" : None, "period" : None, "teacher" , None}
-    classdict.update({"student list" : student_list})
-    classdict.update({"assignment list" : assignment_list})
+    classdict = {"course code": None, "course name": None, "period": None, "teacher": None}
+    classdict.update({"student list": student_list})
+    classdict.update({"assignment list": assignment_list})
     return {}
 
 
 def calculate_average_mark(student: Dict) -> float:
     """Calculates the average mark of a student"""
-    
     targert_student_number = int(input("Enter the student number:"))
     for i in range(len(student_list)):
         for key, val in student_list[i]:
@@ -58,11 +57,9 @@ def calculate_average_mark(student: Dict) -> float:
             else:
                 continue
     return average_mark
-    
 
 def add_student_to_classroom():
     """Adds student to a classroom
-
     Args:
         student: Student dict
         classroom: The classroom to add the student to
@@ -72,12 +69,10 @@ def add_student_to_classroom():
     last_name = input("What is the student's last name? ")
     gender = input("Is the student male or female? ")
     grade = int(input("What grade is the student in? "))
-    #average_mark = ???
+    average_mark_output = average_mark
     email = input("What is the student's email? ")
     comments = input("Do you have any comments? Input them separated by a comma and a space ")
-    
     comments_list = comments.split(", ")
-    
     student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
     return("The student has been added!")
     return("Back to menu [Enter]...")
@@ -97,12 +92,10 @@ def remove_student_from_classroom():
         else:
             return("That is not a valid number.")
     return("Back to menu [Enter]...")
-    
 
 
 def edit_student(student: Dict, **kwargs: Dict):
     """Edits the student's info with the provided key/value pairs
-
     Args:
         student: The student whose data needs to be udated.
         **kwargs: KeyWordARGumentS. The key/value pairs of the
