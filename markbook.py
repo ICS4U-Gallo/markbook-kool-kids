@@ -18,7 +18,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
         name = None
         due = None
         points = None
-        name = input("Enter assignment name: ")
+        name = input("Enter assignment name: "):
         due = input("Enter assignment due date: ")
         points = input("Enter number of points: ")
         new_assignment = {
@@ -75,7 +75,7 @@ def add_student_to_classroom():
     comments_list = comments.split(", ")
     student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list]
     return("The student has been added!")
-    return("Back to menu [Enter]...")
+    input("Back to menu [Enter]...")
 
 def remove_student_from_classroom():
     """Removes student from classroom
@@ -91,7 +91,7 @@ def remove_student_from_classroom():
             break
         else:
             return("That is not a valid number.")
-    return("Back to menu [Enter]...")
+    input("Back to menu [Enter]...")
 
 
 def edit_student(student: Dict, **kwargs: Dict):
