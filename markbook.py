@@ -38,7 +38,7 @@ def create_assignment(name: str, due: str, points: int) -> Dict:
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     student_list = []
     assignment_list = []
-    classdict = {"course code" : None, "course name" : None, "period" : None, "teacher" , None}
+    classdict = {"course_code": None, "course_name": None, "period": None, "teacher": None}
     classdict.update({"student list" : student_list})
     classdict.update({"assignment list" : assignment_list})
     return {}
@@ -54,7 +54,7 @@ def calculate_average_mark(student: Dict) -> float:
                 for i in range(len(student_list[i]["marks"])):
                     marks = ["marks"][i]
                     total_mark += marks
-                average_mark = total_mark/(len(student_list[i]["marks"])
+                average_mark = total_mark/(len(student_list[i]["marks"]))
             else:
                 continue
     return average_mark
