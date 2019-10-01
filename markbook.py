@@ -8,7 +8,6 @@ import json
 student_dictionary = {}
 user = 0
 average_mark = 0
-student_list = []
 assignment_list = []
 with open("studentlist.json", "r") as f:
     student_list = json.load(f)
@@ -83,14 +82,14 @@ def assignment_mark() -> List:
 # Returns the average mark of each student's assignments
 def assignment_avg_marks(assignment_mark_list):
     assignment_avg_list = []
-    student_number = int(input("Enter the student number of the student to input their marks: "))
-    for mark in assignment_mark_list:
-        student_mark = int(input(f"Enter student's mark out of {mark}: "))
-        average = (student_mark // mark) * 100
-        assignment_avg_list.append(average)
-    student_dictionary[student_number]["marks"] = assignment_avg_list
-    assignment_avg = student_dictionary[student_number]["marks"]
-    print(assignment_avg)
+    student_number = int(input("Enter student number: "))
+    for key in student_dictionary:
+        if key == student_number:
+            for mark in assignment_mark_list:
+                student_mark = int(input(f"Enter student's mark out of {mark}: "))
+                average = (student_mark / mark) * 100
+                assignment_avg_list.append(round(average))
+    student_dictionary[student_number].append(assignment_avg_list)
 
 
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
@@ -128,11 +127,12 @@ def add_student_to_classroom():
     last_name = input("What is the student's last name? ")
     gender = input("Is the student male or female? ")
     grade = int(input('What grade is the student in? '))
-    #average_mark_output = calculate_average_mark()
+    assignment_avg_list = []
+    average_mark_output = calculate_average_mark()
     email = input("What is the student's email? ")
     comments = input("Do you have any comments? Input them separated by a comma and a space ")
     comments_list = comments.split(", ")
-    student_dictionary[student_number] = [first_name, last_name, gender, MARKK, grade, email, comments_list]
+    student_dictionary[student_number] = [first_name, last_name, gender, grade, email, comments_list, assignment_avg_list, average_mark_output]
     return "The student has been added!"
 
 
@@ -151,50 +151,31 @@ def remove_student_from_classroom():
             return "That is not a valid number."
 
 
-# def edit_student(student: Dict, **kwargs: Dict):
-#     student_number = int(input("Student Number that you wish to make edits: "))
-#     for student in range(len(student_list)):
-#         if student_list[student]["name"] == assignment_name:
-#             edit_item = input("Edit name, due date or points OR enter to exit: ")
-#             if edit_item == "name":
-#                 new_name = input("Enter new name: ")
-#                 assignment_list[assignment]["name"] = new_name
-#             elif edit_item == "due date":
-#                 new_date = input("Enter new due date: ")
-#                 assignment_list[assignment]["due"] = new_date
-#             elif edit_item == "points":
-#                 new_points = input("Enter new points: ")
-#                 assignment_list[assignment]["points"] = new_points
-#             elif edit_item == "":
-#                 break
-#             else:
-#                 print("Invalid Input")
-
-    return assignment_list
-
-'''
 def edit_student():
-  print(student_dictionary)
-  change_student_number = (int(input("Enter the number of the student you want to change. ")))
-  for number in student_dictionary.keys():
-    if number == change_student_number:
-      edit_item = input("Edit first name, last name, gender, grade, email, comments, or enter to exit: ")
-      if edit_item == "first name":
-        first_name = input("Enter the new first name ")
-      elif edit_item == "last name":
-        last_name = input("Enter the new last name ")
-      elif edit_item == "gender":
-        gender = input("Enter the new gender ")
-      elif edit_item == "grade":
-        grade = input("Enter the new grade ")
-      elif edit_item == "email":
-        email = input("Enter the new email ")
-      elif edit_item == "comments":
-        number.append(input("Enter a comment "))
-      else:
-        return("Invalid input.")
-      break
-'''
+    print(student_dictionary)
+    student_number = (int(input("Enter the number of the student you want to change. ")))
+    for student in range(len(student_dictionary)):
+        if student == student_number:
+            edit_item = input("Edit first name, last name, gender, grade, email, comments, or enter to exit: ")
+            if edit_item == "first name":
+                new_first_name = input("Enter the new first name ")
+                student_dictionary[student_number][0] = new_first_name
+            elif edit_item == "last name":
+                new_last_name = input("Enter the new last name ")
+                student_dictionary[student_number][1] = new_last_name
+            elif edit_item == "gender":
+                new_gender = input("Enter the new gender ")
+                student_dictionary[student_number][2] = new_gender
+            elif edit_item == "grade":
+                new_grade = input("Enter the new grade ")
+                student_dictionary[student_number][3] = new_grade
+            elif edit_item == "email":
+                new_email = input("Enter the new email ")
+                student_dictionary[student_number][4] = new_email
+            elif edit_item == "comments":
+                student_dictionary[student_number][5].append(input("Enter a comment "))
+            else:
+                return "Invalid input. "
 
 
 def main():
@@ -232,7 +213,7 @@ def main():
             remove_student_from_classroom()
 
         elif user == "5":
-            # edit_student()
+            edit_student()
             pass
 
         elif user == "6":
