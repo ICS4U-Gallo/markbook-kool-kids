@@ -54,8 +54,8 @@ def edit_assignment() -> List:
             elif edit_item == "":
                 break
             else:
-                return "Invalid Input"
-    
+                print("Invalid Input")
+
     return assignment_list
 
 
@@ -66,9 +66,9 @@ def remove_assignment() -> List:
             del assignment_list[assignment]
 
     return assignment_list
-    
-    
-# Collects each student's number of points for each assignment
+
+
+# Collects points(denominator)into one list
 def assignment_mark() -> List:
     assignment_mark_list = []
     for assignment in assignment_list:
@@ -78,18 +78,21 @@ def assignment_mark() -> List:
                 assignment_mark_list.append(points)
 
     return assignment_mark_list
-  
+
+
 # Returns the average mark of each student's assignments
-def assignment_avg_marks(assignment_mark_list) -> List:
+def assignment_avg_marks(assignment_mark_list):
     assignment_avg_list = []
+    student_number = int(input("Enter the student number of the student to input their marks: "))
     for mark in assignment_mark_list:
         student_mark = int(input(f"Enter student's mark out of {mark}: "))
         average = (student_mark // mark) * 100
         assignment_avg_list.append(average)
+    student_dictionary[student_number]["marks"] = assignment_avg_list
+    assignment_avg = student_dictionary[student_number]["marks"]
+    print(assignment_avg)
 
-    return assignment_avg_list
 
-    
 def create_classroom(course_code: str, course_name: str, period: int, teacher: str) -> Dict:
     class_dictionary = {"course_code": course_code, "course_name": course_name, "period": period, "teacher": teacher}
     class_dictionary.update({"student list": student_list})
@@ -125,11 +128,11 @@ def add_student_to_classroom():
     last_name = input("What is the student's last name? ")
     gender = input("Is the student male or female? ")
     grade = int(input('What grade is the student in? '))
-    average_mark_output = calculate_average_mark()
+    #average_mark_output = calculate_average_mark()
     email = input("What is the student's email? ")
     comments = input("Do you have any comments? Input them separated by a comma and a space ")
     comments_list = comments.split(", ")
-    student_dictionary[student_number] = [first_name, last_name, gender, average_mark_output, grade, email, comments_list]
+    student_dictionary[student_number] = [first_name, last_name, gender, MARKK, grade, email, comments_list]
     return "The student has been added!"
 
 
@@ -148,15 +151,26 @@ def remove_student_from_classroom():
             return "That is not a valid number."
 
 
-def edit_student(student: Dict, **kwargs: Dict):
-    """Edits the student's info with the provided key/value pairs
-    Args:
-        student: The student whose data needs to be udated.
-        **kwargs: KeyWordARGumentS. The key/value pairs of the
-            data that needs to be changed. Can come in the form
-            of a dictionary.
-    """
-    pass
+# def edit_student(student: Dict, **kwargs: Dict):
+#     student_number = int(input("Student Number that you wish to make edits: "))
+#     for student in range(len(student_list)):
+#         if student_list[student]["name"] == assignment_name:
+#             edit_item = input("Edit name, due date or points OR enter to exit: ")
+#             if edit_item == "name":
+#                 new_name = input("Enter new name: ")
+#                 assignment_list[assignment]["name"] = new_name
+#             elif edit_item == "due date":
+#                 new_date = input("Enter new due date: ")
+#                 assignment_list[assignment]["due"] = new_date
+#             elif edit_item == "points":
+#                 new_points = input("Enter new points: ")
+#                 assignment_list[assignment]["points"] = new_points
+#             elif edit_item == "":
+#                 break
+#             else:
+#                 print("Invalid Input")
+
+    return assignment_list
 
 
 def main():
@@ -164,12 +178,12 @@ def main():
     print("\nWelcome!")
     while True:
         print("\n1 - Assignments\n2 - Create Classroom\n3 - Add Student to Classroom")
-        print("4 - Remove Student from Classroom\n5 - Edit Student\n6 - Exit Program")
+        print("4 - Remove Student from Classroom\n5 - Edit Student\n6 - Input Student Marks\n7 - Exit Program")
         user = input("\nInput a Number: ")
 
         # Creates Assignments
         if user == "1":
-            print("\n1- Create Assignment\n2- Edit Assignments\n3- Remove Assignment")
+            print("\n1 - Create Assignment\n2 - Edit Assignments\n3 - Remove Assignment")
             user = input("\nInput a Number: ")
             if user == "1":
                 create_assignment()
@@ -183,11 +197,11 @@ def main():
         elif user == "2":
             course_code = input("\nEnter the course code of the class: ")
             course_name = input("Enter the name of the class: ")
-            period = input("Enter what period the class is: ")
+            period = int(input("Enter what period the class is: "))
             teacher = input("Enter the name of the teacher: ")
             print(create_classroom(course_code, course_name, period, teacher))
 
-        elif user == "3":    
+        elif user == "3":
             add_student_to_classroom()
 
         elif user == "4":
@@ -198,6 +212,9 @@ def main():
             pass
 
         elif user == "6":
+            assignment_avg_marks(assignment_mark())
+
+        elif user == "7":
             break
 
         else:
