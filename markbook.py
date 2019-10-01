@@ -172,6 +172,30 @@ def remove_student_from_classroom():
 
     return assignment_list
 
+'''
+def edit_student():
+  print(student_dictionary)
+  change_student_number = (int(input("Enter the number of the student you want to change. ")))
+  for number in student_dictionary.keys():
+    if number == change_student_number:
+      edit_item = input("Edit first name, last name, gender, grade, email, comments, or enter to exit: ")
+      if edit_item == "first name":
+        first_name = input("Enter the new first name ")
+      elif edit_item == "last name":
+        last_name = input("Enter the new last name ")
+      elif edit_item == "gender":
+        gender = input("Enter the new gender ")
+      elif edit_item == "grade":
+        grade = input("Enter the new grade ")
+      elif edit_item == "email":
+        email = input("Enter the new email ")
+      elif edit_item == "comments":
+        number.append(input("Enter a comment "))
+      else:
+        return("Invalid input.")
+      break
+'''
+
 
 def main():
     global user
