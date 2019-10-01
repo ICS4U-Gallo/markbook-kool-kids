@@ -150,7 +150,7 @@ def remove_student_from_classroom():
         else:
             return "That is not a valid number."
 
-
+#user can change values in student dictionary
 def edit_student():
     print(student_dictionary)
     student_number = (int(input("Enter the number of the student you want to change. ")))
@@ -214,7 +214,6 @@ def main():
 
         elif user == "5":
             edit_student()
-            pass
 
         elif user == "6":
             assignment_avg_marks(assignment_mark())
